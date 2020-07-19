@@ -1,0 +1,7 @@
+package com.com.service.impl;
+
+import com.com.service.Tsbzwycgtzb;
+
+public class TsbzwycgtzbImpl implements Tsbzwycgtzb {
+
+}

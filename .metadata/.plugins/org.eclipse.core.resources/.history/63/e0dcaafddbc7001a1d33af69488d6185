@@ -1,0 +1,10 @@
+package com.com.properties;
+
+...
+@Configuration
+@ConfigurationProperties(prefix = "spring.datasource.db1.extend")
+public class PrimaryMybatisProperties {
+	
+	private String mybatisMapperLocations;
+	...
+}

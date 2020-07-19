@@ -1,0 +1,26 @@
+package com.com;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+
+
+
+
+/**
+ * 微服务应用服务启动类 
+ * @author Windows10
+ *
+ */
+@SpringBootApplication(scanBasePackages={"com.com","com.sgcc.uap.rest.annotation","com.sgcc.uap.mdd.runtime"},exclude = { DataSourceAutoConfiguration.class,
+//		MybatisAutoConfiguration.class
+		})
+
+@EnableScheduling
+public class Application {
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+
+}

@@ -1,0 +1,9 @@
+package com.com.service;
+
+public interface TestService {
+
+	
+	void testSelect();
+	
+	void testSelectAll();
+}

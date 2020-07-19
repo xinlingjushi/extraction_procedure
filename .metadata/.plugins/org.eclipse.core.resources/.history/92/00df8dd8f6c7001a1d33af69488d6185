@@ -1,0 +1,11 @@
+package com.com.db.mapper;
+
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+@Mapper
+@Repository
+public interface SkTzMapperM {
+
+	Map selectByPrimaryKey1(String id);
+}

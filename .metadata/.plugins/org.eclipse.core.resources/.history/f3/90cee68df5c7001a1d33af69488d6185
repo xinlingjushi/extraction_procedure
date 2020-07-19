@@ -1,0 +1,39 @@
+package com.com.web;
+
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+@RequestMapping("/")
+public class T {
+	
+	
+	
+
+	@Resource
+	com.com.db.mapper.SkTzMapperM m;
+	@Resource
+	com.com.db2.mapper.SkTzMapperS s;
+	@RequestMapping("/")
+	public String A(){
+		// TODO Auto-generated method stub
+		
+		Map  ms  =   m.selectByPrimaryKey1("6DFA69A4DDC0475F9472900DFE90A7D8");
+		
+		
+		Map  m1s  =  s.selectByPrimaryKey("B445E2C131D34078B7C857EADAE92175");
+		
+		
+	        
+	        System.out.println("");
+	
+		
+		return "1";
+	}
+
+}

@@ -1,0 +1,12 @@
+package com.com.db.mapper;
+
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
+@Mapper
+public interface SkTzMapperM {
+
+	Map selectByPrimaryKey1(String id);
+}

@@ -1,0 +1,15 @@
+package com.com.service.impl;
+
+import org.springframework.stereotype.Service;
+
+
+@Service
+public class TsbzwycgtzbImpl implements Tsbzwycgtzb {
+
+	@Override
+	public void ta() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

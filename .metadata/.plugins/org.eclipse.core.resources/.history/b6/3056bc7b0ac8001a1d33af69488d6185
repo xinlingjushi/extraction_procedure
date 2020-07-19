@@ -1,0 +1,28 @@
+package com.com.properties;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ConfigurationProperties(prefix = "spring.datasource.db2.extend")
+public class Db2MybatisProperties {
+	
+	private String mybatisMapperLocations;
+	private String pagehelperDialect;
+	private String pagehelperReasonable;
+	private String pagehelperSupportMethodsArguments;
+	private String pagehelperParams;
+	private String pagehelperOffsetAsPageNum;
+	private String pagehelperRowBoundsWithCount;
+
+	public String getMybatisMapperLocations() {
+		return mybatisMapperLocations;
+	}
+
+	public void setMybatisMapperLocations(String mybatisMapperLocations) {
+		this.mybatisMapperLocations = mybatisMapperLocations;
+	}
+	
+	
+}
+

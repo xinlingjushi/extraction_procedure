@@ -1,0 +1,5 @@
+package com.com.config;
+
+public class Db2MybatisConfiguration {
+
+}

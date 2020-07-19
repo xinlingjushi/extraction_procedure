@@ -1,0 +1,15 @@
+package snippet;
+
+public class Snippet {
+	public static void main(String[] args) {
+		<!--解决数据库中文乱码问题：不支持的字符集，不支持的字符集合-->
+		<!-- https://mvnrepository.com/artifact/cn.easyproject/orai18n -->
+		<dependency>
+		    <groupId>cn.easyproject</groupId>
+		    <artifactId>orai18n</artifactId>
+		    <version>12.1.0.2.0</version>
+		</dependency>
+		
+	}
+}
+

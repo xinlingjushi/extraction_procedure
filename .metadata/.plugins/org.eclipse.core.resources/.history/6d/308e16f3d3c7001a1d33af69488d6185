@@ -1,0 +1,5 @@
+package com.com.config.factory;
+
+public class Db2MybatisConfiguration {
+
+}

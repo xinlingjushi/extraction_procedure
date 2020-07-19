@@ -1,0 +1,19 @@
+package com.com.db1.mapper;
+
+import com.com.db1.model.GkGj;
+
+public interface GkGjMapper {
+    int deleteByPrimaryKey(String id);
+
+    int insert(GkGj record);
+
+    int insertSelective(GkGj record);
+
+    GkGj selectByPrimaryKey(String id);
+
+    int updateByPrimaryKeySelective(GkGj record);
+
+    int updateByPrimaryKeyWithBLOBs(GkGj record);
+
+    int updateByPrimaryKey(GkGj record);
+}

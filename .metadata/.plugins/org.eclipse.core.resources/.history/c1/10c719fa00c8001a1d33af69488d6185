@@ -1,0 +1,31 @@
+package com.com.service.impl;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.com.service.Tsbzwycgtzb;
+
+
+@Service
+public class TsbzwycgtzbImpl implements Tsbzwycgtzb {
+
+	
+	@Override
+	public void ta() {
+		// TODO Auto-generated method stub
+		 Map  ms  =   m.selectByPrimaryKey1("6DFA69A4DDC0475F9472900DFE90A7D8");
+		  ms.forEach((k, v) -> System.out.println("key:value = " + k + ":" + v));
+	      Map  m1s  =  s.selectByPrimaryKey("B445E2C131D34078B7C857EADAE92175");
+		  m1s.forEach((k, v) -> System.out.println("key:value = " + k + ":" + v));
+		System.out.println("111111");
+	}
+	
+
+	@Autowired
+	com.com.db.mapper.SkTzMapperM m;
+	@Autowired
+	com.com.db2.mapper.SkTzMapperS s;
+
+}

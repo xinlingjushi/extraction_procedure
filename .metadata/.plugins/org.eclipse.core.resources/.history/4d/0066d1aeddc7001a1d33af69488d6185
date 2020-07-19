@@ -1,0 +1,17 @@
+package com.com.web;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/")
+public class T {
+	
+	@RequestMapping("/")
+	public String A(){
+		
+		
+		return "";
+	}
+
+}

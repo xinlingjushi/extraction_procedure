@@ -1,0 +1,22 @@
+package com.com.config;
+
+import javax.sql.DataSource;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
+
+
+@Configuration
+@ConfigurationProperties(prefix = "spring.datasource.db1.extend")
+public class PrimaryMybatisConfiguration {
+    @Bean(name = "primaryDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.db1")
+    @Primary
+    public DataSource dataSource() {
+    	System.out.println("config primaryDataSource success.");
+    	return DataSourceBuilder.create().build();
+    }
+
+}

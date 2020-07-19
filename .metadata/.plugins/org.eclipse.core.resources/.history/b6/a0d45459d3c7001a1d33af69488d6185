@@ -1,0 +1,11 @@
+package com.com.config;
+
+public class Db2MybatisConfiguration {
+    @Bean(name = "db2DataSource")
+    @ConfigurationProperties(prefix = "spring.datasource.db2")
+    public DataSource dataSource() {
+    	log.info("config db2DataSource success.");
+    	return DataSourceBuilder.create().build();
+    }
+
+}

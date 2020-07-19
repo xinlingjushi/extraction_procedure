@@ -1,0 +1,71 @@
+package com.com.scheduling;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import javax.annotation.Resource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+
+@Configuration
+@Component("SchedulingConsole")
+//假如项目已经引入的配置文件, 则不需要@PropertySource注解配置
+@PropertySource(value = "classpath:config.properties")
+public class SchedulingConsole {
+
+	
+	// 日志
+	private final static Logger log = (Logger) LoggerFactory.getLogger(SchedulingConsole.class);
+	
+	
+	private List<Integer> index = Arrays.asList(8000,6000,7000);
+
+    private AtomicInteger atomicInteger = new AtomicInteger(0);
+   
+    
+	/**
+     * 此处设定的是0,5,15,25...秒时执行
+     *
+     * @throws InterruptedException  :0/30 * * * * ?
+     */
+    @Scheduled(cron = "${system.cron}")
+    public void cron() throws InterruptedException {
+        int i = atomicInteger.get();
+        if (i < 3) {
+            log.info("开始执行时间 {}", System.currentTimeMillis());
+            log.info("第{}此执行，执行时间为{}ms", i, index.get(i));
+            Thread.sleep(index.get(i));
+            atomicInteger.getAndIncrement();
+        }
+    }
+    
+    @Scheduled(cron = "${tsbzwycgtzb.cron}")
+    public void cron1() throws InterruptedException {
+    	log.info("开始执行杆塔和线路坐标", System.currentTimeMillis());
+        Map  ms  =   m.selectByPrimaryKey1("6DFA69A4DDC0475F9472900DFE90A7D8");
+		
+		
+		Map  m1s  =  s.selectByPrimaryKey("B445E2C131D34078B7C857EADAE92175");
+		
+    	log.info("结束执行杆塔和线路坐标", System.currentTimeMillis());
+    }
+    
+    
+    @Resource
+	com.com.db.mapper.SkTzMapperM m;
+	@Resource
+	com.com.db2.mapper.SkTzMapperS s;
+		
+    
+
+}

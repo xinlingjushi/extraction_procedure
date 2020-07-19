@@ -1,0 +1,8 @@
+package com.com.scheduling;
+
+public class Snippet {
+	public static void main(String[] args) {
+		tsbzwycgtzb.cron = 0/5 * * * * ?
+	}
+}
+

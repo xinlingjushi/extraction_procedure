@@ -1,0 +1,10 @@
+package com.com.properties;
+
+@Configuration
+@ConfigurationProperties(prefix = "spring.datasource.db2.extend")
+public class Db2MybatisProperties {
+	
+	private String mybatisMapperLocations;
+	...
+}
+

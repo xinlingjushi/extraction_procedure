@@ -1,0 +1,7 @@
+package com.com.service;
+
+public interface Tsbzwycgtzb {
+
+	
+	void test();
+}

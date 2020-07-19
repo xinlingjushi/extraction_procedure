@@ -1,0 +1,48 @@
+package com.data.tz.server.api.comm;
+
+import com.alibaba.fastjson.JSONObject;
+
+/**
+ * 
+ * @author jinyihao
+ */
+public class ResultUtils {
+
+	
+	private ResultUtils(){
+		
+	}
+	
+	/**
+	 * 成功返回
+	 * @param data
+	 * @return
+	 */
+	public static String ResultSuccess(Object data){
+		BizObject  bj = new BizObject();
+		bj.setData(data);
+		return JSONObject.toJSONString(bj);
+	}
+	
+	/**
+	 * 失败返回
+	 * @param data
+	 * @return
+	 */
+    public static String ResultErr(String message , Object data){
+    	BizObject  bj = new BizObject();
+    	bj.setSuccess(false);
+    	bj.setMessage(message);
+		bj.setData(data);
+		return JSONObject.toJSONString(bj);
+	}
+    
+    public static String ResultErr(String message){
+    	BizObject  bj = new BizObject();
+    	bj.setSuccess(false);
+    	bj.setMessage(message);
+		return JSONObject.toJSONString(bj);
+	}
+	
+	
+}

@@ -1,0 +1,43 @@
+package com.com.service.impl;
+
+import java.util.List;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.com.db1.mapper.GkGjMapper;
+import com.com.db1.mapper.SkTzMapperM;
+import com.com.db1.model.GkGj;
+import com.com.db2.mapper.SkTzMapperS;
+import com.com.service.TestService;
+
+
+@Service
+public class TestServiceImpl implements TestService {
+
+	@Autowired
+	SkTzMapperM m;
+	@Autowired
+	SkTzMapperS s;
+	@Autowired
+	GkGjMapper gkGjMapper;
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@Override
+	public void testSelect() {
+		// TODO Auto-generated method stub
+		 Map  ms  =   m.selectByPrimaryKey1("6DFA69A4DDC0475F9472900DFE90A7D8");
+		 ms.forEach((k, v) -> System.out.println("key:value = " + k + ":" + v));
+	     Map  m1s  =  s.selectByPrimaryKey("B445E2C131D34078B7C857EADAE92175");
+		 m1s.forEach((k, v) -> System.out.println("key:value = " + k + ":" + v));
+		 System.out.println("111111");
+	}
+	
+	
+	@Override
+	public List<GkGj> testSelectAll(GkGj gkGj) {
+		// TODO Auto-generated method stub
+		return gkGjMapper.selectByAll(gkGj);
+	}
+
+}

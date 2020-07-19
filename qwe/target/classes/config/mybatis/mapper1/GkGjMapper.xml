@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.com.db1.mapper.GkGjMapper">
+  <resultMap id="BaseResultMap" type="com.com.db1.model.GkGj">
+    <id column="ID" jdbcType="NVARCHAR" property="id" />
+    <result column="GJMC" jdbcType="VARCHAR" property="gjmc" />
+    <result column="GJNR" jdbcType="VARCHAR" property="gjnr" />
+    <result column="GJJB" jdbcType="NVARCHAR" property="gjjb" />
+    <result column="SFCL" jdbcType="NVARCHAR" property="sfcl" />
+    <result column="RWBM" jdbcType="NVARCHAR" property="rwbm" />
+    <result column="RWID" jdbcType="NVARCHAR" property="rwid" />
+    <result column="JSID" jdbcType="NVARCHAR" property="jsid" />
+    <result column="GJLX" jdbcType="VARCHAR" property="gjlx" />
+    <result column="GJSJ" jdbcType="TIMESTAMP" property="gjsj" />
+    <result column="CLJD" jdbcType="VARCHAR" property="cljd" />
+    <result column="CBCS" jdbcType="VARCHAR" property="cbcs" />
+    <result column="CBJL" jdbcType="VARCHAR" property="cbjl" />
+    <result column="CLSJ" jdbcType="TIMESTAMP" property="clsj" />
+    <result column="CLR" jdbcType="VARCHAR" property="clr" />
+    <result column="CLYY" jdbcType="VARCHAR" property="clyy" />
+    <result column="GKCS" jdbcType="VARCHAR" property="gkcs" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.com.db1.model.GkGj">
+    <result column="GJYY" jdbcType="CLOB" property="gjyy" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, GJMC, GJNR, GJJB, SFCL, RWBM, RWID, JSID, GJLX, GJSJ, CLJD, CBCS, CBJL, CLSJ, 
+    CLR, CLYY, GKCS
+  </sql>
+  <sql id="Blob_Column_List">
+    GJYY
+  </sql>
+  <select id="selectByAll" parameterType="com.com.db1.model.GkGj" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from GK_GJ
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from GK_GJ
+    where ID = #{id,jdbcType=NVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from GK_GJ
+    where ID = #{id,jdbcType=NVARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.com.db1.model.GkGj">
+    insert into GK_GJ (ID, GJMC, GJNR, 
+      GJJB, SFCL, RWBM, 
+      RWID, JSID, GJLX, 
+      GJSJ, CLJD, CBCS, 
+      CBJL, CLSJ, CLR, 
+      CLYY, GKCS, GJYY)
+    values (#{id,jdbcType=NVARCHAR}, #{gjmc,jdbcType=VARCHAR}, #{gjnr,jdbcType=VARCHAR}, 
+      #{gjjb,jdbcType=NVARCHAR}, #{sfcl,jdbcType=NVARCHAR}, #{rwbm,jdbcType=NVARCHAR}, 
+      #{rwid,jdbcType=NVARCHAR}, #{jsid,jdbcType=NVARCHAR}, #{gjlx,jdbcType=VARCHAR}, 
+      #{gjsj,jdbcType=TIMESTAMP}, #{cljd,jdbcType=VARCHAR}, #{cbcs,jdbcType=VARCHAR}, 
+      #{cbjl,jdbcType=VARCHAR}, #{clsj,jdbcType=TIMESTAMP}, #{clr,jdbcType=VARCHAR}, 
+      #{clyy,jdbcType=VARCHAR}, #{gkcs,jdbcType=VARCHAR}, #{gjyy,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.com.db1.model.GkGj">
+    insert into GK_GJ
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="gjmc != null">
+        GJMC,
+      </if>
+      <if test="gjnr != null">
+        GJNR,
+      </if>
+      <if test="gjjb != null">
+        GJJB,
+      </if>
+      <if test="sfcl != null">
+        SFCL,
+      </if>
+      <if test="rwbm != null">
+        RWBM,
+      </if>
+      <if test="rwid != null">
+        RWID,
+      </if>
+      <if test="jsid != null">
+        JSID,
+      </if>
+      <if test="gjlx != null">
+        GJLX,
+      </if>
+      <if test="gjsj != null">
+        GJSJ,
+      </if>
+      <if test="cljd != null">
+        CLJD,
+      </if>
+      <if test="cbcs != null">
+        CBCS,
+      </if>
+      <if test="cbjl != null">
+        CBJL,
+      </if>
+      <if test="clsj != null">
+        CLSJ,
+      </if>
+      <if test="clr != null">
+        CLR,
+      </if>
+      <if test="clyy != null">
+        CLYY,
+      </if>
+      <if test="gkcs != null">
+        GKCS,
+      </if>
+      <if test="gjyy != null">
+        GJYY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=NVARCHAR},
+      </if>
+      <if test="gjmc != null">
+        #{gjmc,jdbcType=VARCHAR},
+      </if>
+      <if test="gjnr != null">
+        #{gjnr,jdbcType=VARCHAR},
+      </if>
+      <if test="gjjb != null">
+        #{gjjb,jdbcType=NVARCHAR},
+      </if>
+      <if test="sfcl != null">
+        #{sfcl,jdbcType=NVARCHAR},
+      </if>
+      <if test="rwbm != null">
+        #{rwbm,jdbcType=NVARCHAR},
+      </if>
+      <if test="rwid != null">
+        #{rwid,jdbcType=NVARCHAR},
+      </if>
+      <if test="jsid != null">
+        #{jsid,jdbcType=NVARCHAR},
+      </if>
+      <if test="gjlx != null">
+        #{gjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="gjsj != null">
+        #{gjsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cljd != null">
+        #{cljd,jdbcType=VARCHAR},
+      </if>
+      <if test="cbcs != null">
+        #{cbcs,jdbcType=VARCHAR},
+      </if>
+      <if test="cbjl != null">
+        #{cbjl,jdbcType=VARCHAR},
+      </if>
+      <if test="clsj != null">
+        #{clsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clr != null">
+        #{clr,jdbcType=VARCHAR},
+      </if>
+      <if test="clyy != null">
+        #{clyy,jdbcType=VARCHAR},
+      </if>
+      <if test="gkcs != null">
+        #{gkcs,jdbcType=VARCHAR},
+      </if>
+      <if test="gjyy != null">
+        #{gjyy,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.com.db1.model.GkGj">
+    update GK_GJ
+    <set>
+      <if test="gjmc != null">
+        GJMC = #{gjmc,jdbcType=VARCHAR},
+      </if>
+      <if test="gjnr != null">
+        GJNR = #{gjnr,jdbcType=VARCHAR},
+      </if>
+      <if test="gjjb != null">
+        GJJB = #{gjjb,jdbcType=NVARCHAR},
+      </if>
+      <if test="sfcl != null">
+        SFCL = #{sfcl,jdbcType=NVARCHAR},
+      </if>
+      <if test="rwbm != null">
+        RWBM = #{rwbm,jdbcType=NVARCHAR},
+      </if>
+      <if test="rwid != null">
+        RWID = #{rwid,jdbcType=NVARCHAR},
+      </if>
+      <if test="jsid != null">
+        JSID = #{jsid,jdbcType=NVARCHAR},
+      </if>
+      <if test="gjlx != null">
+        GJLX = #{gjlx,jdbcType=VARCHAR},
+      </if>
+      <if test="gjsj != null">
+        GJSJ = #{gjsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cljd != null">
+        CLJD = #{cljd,jdbcType=VARCHAR},
+      </if>
+      <if test="cbcs != null">
+        CBCS = #{cbcs,jdbcType=VARCHAR},
+      </if>
+      <if test="cbjl != null">
+        CBJL = #{cbjl,jdbcType=VARCHAR},
+      </if>
+      <if test="clsj != null">
+        CLSJ = #{clsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clr != null">
+        CLR = #{clr,jdbcType=VARCHAR},
+      </if>
+      <if test="clyy != null">
+        CLYY = #{clyy,jdbcType=VARCHAR},
+      </if>
+      <if test="gkcs != null">
+        GKCS = #{gkcs,jdbcType=VARCHAR},
+      </if>
+      <if test="gjyy != null">
+        GJYY = #{gjyy,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.com.db1.model.GkGj">
+    update GK_GJ
+    set GJMC = #{gjmc,jdbcType=VARCHAR},
+      GJNR = #{gjnr,jdbcType=VARCHAR},
+      GJJB = #{gjjb,jdbcType=NVARCHAR},
+      SFCL = #{sfcl,jdbcType=NVARCHAR},
+      RWBM = #{rwbm,jdbcType=NVARCHAR},
+      RWID = #{rwid,jdbcType=NVARCHAR},
+      JSID = #{jsid,jdbcType=NVARCHAR},
+      GJLX = #{gjlx,jdbcType=VARCHAR},
+      GJSJ = #{gjsj,jdbcType=TIMESTAMP},
+      CLJD = #{cljd,jdbcType=VARCHAR},
+      CBCS = #{cbcs,jdbcType=VARCHAR},
+      CBJL = #{cbjl,jdbcType=VARCHAR},
+      CLSJ = #{clsj,jdbcType=TIMESTAMP},
+      CLR = #{clr,jdbcType=VARCHAR},
+      CLYY = #{clyy,jdbcType=VARCHAR},
+      GKCS = #{gkcs,jdbcType=VARCHAR},
+      GJYY = #{gjyy,jdbcType=CLOB}
+    where ID = #{id,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.com.db1.model.GkGj">
+    update GK_GJ
+    set GJMC = #{gjmc,jdbcType=VARCHAR},
+      GJNR = #{gjnr,jdbcType=VARCHAR},
+      GJJB = #{gjjb,jdbcType=NVARCHAR},
+      SFCL = #{sfcl,jdbcType=NVARCHAR},
+      RWBM = #{rwbm,jdbcType=NVARCHAR},
+      RWID = #{rwid,jdbcType=NVARCHAR},
+      JSID = #{jsid,jdbcType=NVARCHAR},
+      GJLX = #{gjlx,jdbcType=VARCHAR},
+      GJSJ = #{gjsj,jdbcType=TIMESTAMP},
+      CLJD = #{cljd,jdbcType=VARCHAR},
+      CBCS = #{cbcs,jdbcType=VARCHAR},
+      CBJL = #{cbjl,jdbcType=VARCHAR},
+      CLSJ = #{clsj,jdbcType=TIMESTAMP},
+      CLR = #{clr,jdbcType=VARCHAR},
+      CLYY = #{clyy,jdbcType=VARCHAR},
+      GKCS = #{gkcs,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=NVARCHAR}
+  </update>
+</mapper>

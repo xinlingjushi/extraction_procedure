@@ -1,0 +1,13 @@
+package com.com.db.mapper;
+
+import java.util.Map;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
+
+@Mapper
+@Repository
+public interface SkTzMapperM {
+
+	@SuppressWarnings("rawtypes")
+	Map selectByPrimaryKey1(String id);
+}

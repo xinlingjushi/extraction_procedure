@@ -1,0 +1,20 @@
+package com.com.properties;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@ConfigurationProperties(prefix = "spring.datasource.db1.extend")
+public class PrimaryMybatisProperties {
+	
+	private String mybatisMapperLocations;
+
+	public String getMybatisMapperLocations() {
+		return mybatisMapperLocations;
+	}
+
+	public void setMybatisMapperLocations(String mybatisMapperLocations) {
+		this.mybatisMapperLocations = mybatisMapperLocations;
+	}
+	
+}
